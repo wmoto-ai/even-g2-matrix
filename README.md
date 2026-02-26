@@ -6,11 +6,15 @@ HTMLプレビュー（Canvas描画）とG2グラス（画像転送）の2系統�
 
 ## デモ
 
+**シミュレーターでの動作:**
+
 ![Even G2 Matrix simulator demo](docs/media/even_matrix_sim.gif)
+
+**G2実機での表示イメージ:**
 
 ![Even Matrix reference image](docs/media/even_matrix_ref.jpg)
 
-- 参考イメージ（外部リンク）: https://x.com/wmoto_ai/status/2026966274157453390
+- 参考ポスト: https://x.com/wmoto_ai/status/2026966274157453390
 
 > **⚠️ 実機での表示について:** 上のデモGIFはシミュレーター上の動作です。G2実機ではBLE経由の画像転送（実効1–2 FPS）のため、シミュレーターと比べて描画が大幅にカクつきます。体感速度を補正するため、1フレームで複数ティックを進める処理を入れています。
 
@@ -52,15 +56,15 @@ pnpm qr -- http://localhost:5176/
 npx @evenrealities/evenhub-simulator --glow http://localhost:<port>/
 ```
 
-- G2実機がなくても、PC上のEvenHub SimulatorだけでUI/イベント検証が可能
-- 実機との差分はありうるため、最終確認はG2実機で実施推奨
-- `@evenrealities/evenhub-simulator` の公開ドキュメント上は Linux / macOS / Windows の設定パス記載あり
-
 ブラウザにアプリUI、別ウィンドウにG2ディスプレイシミュレーター（576x288, 4bitグレースケール）が開く。
 
 操作手順:
 1. **Connect Glasses** → Bridge接続
 2. **Start Matrix** → Matrix rain再生開始
+
+- G2実機がなくても、PC上のEvenHub SimulatorだけでUI/イベント検証が可能
+- 実機との差分はありうるため、最終確認はG2実機で実施推奨
+- `@evenrealities/evenhub-simulator` の公開ドキュメント上は Linux / macOS / Windows の設定パス記載あり
 
 ## アーキテクチャ
 
@@ -81,6 +85,8 @@ Canvas描画              ImageContainerProperty x2
   - BLE転送が低速なため、1フレームで複数ティック進めて体感速度を補正
 
 ## G2画像転送の制約と知見
+
+> 以下は `@evenrealities/even_hub_sdk` **v0.0.7** / `@evenrealities/evenhub-simulator` **v0.4.1** 時点（2026-02-26）での検証結果です。SDK の更新により仕様が変わる可能性があります。
 
 | 項目                   | 値・備考                                                                       |
 | ---------------------- | ------------------------------------------------------------------------------ |
