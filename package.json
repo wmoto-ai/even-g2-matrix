@@ -1,11 +1,14 @@
 {
   "name": "even-g2-matrix",
   "version": "0.1.0",
+  "license": "MIT",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite --host 0.0.0.0 --port 5174",
-    "sim": "npx @evenrealities/evenhub-simulator --glow http://localhost:5174/",
+    "dev": "node scripts/dev.mjs",
+    "dev:plain": "vite --host 0.0.0.0 --port 5174",
+    "qr": "node scripts/qr.mjs",
+    "sim": "node scripts/sim.mjs",
     "build": "vite build",
     "preview": "vite preview"
   },

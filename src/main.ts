@@ -409,21 +409,21 @@ async function runFrame() {
   // Update G2 glasses (image-based, decoupled from preview)
   if (runtime.conn.mode === 'bridge' && !g2InFlight) {
     g2InFlight = true
-    ;(async () => {
-      try {
-        let g2Frame!: ReturnType<typeof nextMatrixFrame>
-        for (let i = 0; i < G2_TICKS_PER_FRAME; i++) {
-          g2Frame = nextMatrixFrame(runtime!.g2State)
+      ; (async () => {
+        try {
+          let g2Frame!: ReturnType<typeof nextMatrixFrame>
+          for (let i = 0; i < G2_TICKS_PER_FRAME; i++) {
+            g2Frame = nextMatrixFrame(runtime!.g2State)
+          }
+          const images = await renderG2Images(g2Frame.grid)
+          await pushG2ImageFrames(runtime!.conn, images)
+        } catch (err) {
+          const msg = err instanceof Error ? err.message : String(err)
+          log(`G2 frame error: ${msg}`)
+        } finally {
+          g2InFlight = false
         }
-        const images = await renderG2Images(g2Frame.grid)
-        await pushG2ImageFrames(runtime!.conn, images)
-      } catch (err) {
-        const msg = err instanceof Error ? err.message : String(err)
-        log(`G2 frame error: ${msg}`)
-      } finally {
-        g2InFlight = false
-      }
-    })()
+      })()
   }
 
   runtime.frame += 1
@@ -496,7 +496,7 @@ connectBtn.addEventListener('click', async () => {
       initialized: false,
       frame: 0,
       previewState: createMatrixState(cols, rows, { mode: 'preview' }),
-      g2State: createMatrixState(G2_IMG_COLS, G2_IMG_ROWS, { mode: 'preview' }),
+      g2State: createMatrixState(G2_IMG_COLS, G2_IMG_ROWS, { mode: 'g2' }),
     }
 
     updateStatus(conn.mode === 'bridge' ? '接続済み (Bridge)' : '接続済み (Mock)')
