@@ -10,7 +10,7 @@ HTMLプレビュー（Canvas描画）とG2グラス（画像転送）の2系統�
 
 ![Even Matrix reference image](docs/media/even_matrix_ref.jpg)
 
-- 参考イメージ（外部リンク）: https://pbs.twimg.com/media/HCE7FQhagAA_u2D?format=jpg&name=medium
+- 参考イメージ（外部リンク）: https://x.com/wmoto_ai/status/2026966274157453390
 
 > **⚠️ 実機での表示について:** 上のデモGIFはシミュレーター上の動作です。G2実機ではBLE経由の画像転送（実効1–2 FPS）のため、シミュレーターと比べて描画が大幅にカクつきます。体感速度を補正するため、1フレームで複数ティックを進める処理を入れています。
 
