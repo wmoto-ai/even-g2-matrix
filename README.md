@@ -4,6 +4,16 @@
 
 HTMLプレビュー（Canvas描画）とG2グラス（画像転送）の2系統で動作する。
 
+## デモ
+
+![Even G2 Matrix simulator demo](docs/media/even_matrix_sim.gif)
+
+![Even Matrix reference image](docs/media/even_matrix_ref.jpg)
+
+- 参考イメージ（外部リンク）: https://pbs.twimg.com/media/HCE7FQhagAA_u2D?format=jpg&name=medium
+
+> **⚠️ 実機での表示について:** 上のデモGIFはシミュレーター上の動作です。G2実機ではBLE経由の画像転送（実効1–2 FPS）のため、シミュレーターと比べて描画が大幅にカクつきます。体感速度を補正するため、1フレームで複数ティックを進める処理を入れています。
+
 ## セットアップ
 
 ```bash
@@ -97,8 +107,10 @@ Canvas描画              ImageContainerProperty x2
 
 1. iPhone に Even App をインストール
 2. G2 を iPhone に BLE ペアリング
-3. Even App でWebアプリのURL（`http://<your-ip>:<port>/`）を設定
-4. G2で動作確認
+3. `pnpm dev` または `pnpm sim` を実行し、ターミナルに出力されたQRコードを表示
+4. iPhone の Even App（Even Hub）で QR を読み込み
+5. 必要に応じて Even App 側でURL（`http://<your-ip>:<port>/`）を直接指定
+6. G2で動作確認
 
 ## 公式リファレンス
 
