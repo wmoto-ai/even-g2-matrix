@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@evenrealities/even_hub_sdk':
-        specifier: ^0.0.12
-        version: 0.0.12
+        specifier: ^0.0.16
+        version: 0.0.16
     devDependencies:
       typescript:
         specifier: ^5.9.3
@@ -177,8 +177,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@evenrealities/even_hub_sdk@0.0.12':
-    resolution: {integrity: sha512-PXAeuPl7dMIlSWlctDeQAodIr7iuNROaH9GvRrZ86xzRh33DkMJYY1hSxy6BTk+TLkDA0tYlVi4bOsSIJngINA==}
+  '@evenrealities/even_hub_sdk@0.0.16':
+    resolution: {integrity: sha512-8/qMR4W3vna6xAM5/dFDmKoTR98D7Vo3TDBrtS0JgdUSvBVyAnUXuhODI3H587fI2TfLbp4T+FNT3EdkB3+Big==}
     engines: {node: ^20.0.0 || >=22.0.0}
 
   '@napi-rs/lzma-linux-x64-gnu@1.5.1':
@@ -502,7 +502,7 @@ snapshots:
   '@esbuild/win32-x64@0.28.1':
     optional: true
 
-  '@evenrealities/even_hub_sdk@0.0.12': {}
+  '@evenrealities/even_hub_sdk@0.0.16': {}
 
   '@napi-rs/lzma-linux-x64-gnu@1.5.1':
     optional: true
